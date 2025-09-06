@@ -49,7 +49,7 @@ const CustomTooltip = ({active, payload, label}: CustomTooltipProps) => {
 export const Chart: FC<Props> = ({data}) => {
 
   return (
-    <div className="p-4">
+    <div className="p-4 mt-5">
       <div
         className={cardWrapper}>
         <div className="flex items-center mb-4">
