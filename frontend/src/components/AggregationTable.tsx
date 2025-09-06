@@ -23,7 +23,7 @@ export const AggregationTable: FC<Props> = ({data, options, currentOption, onCha
             <div className="flex items-center justify-between gap-3 flex-wrap mb-4">
               <div className="flex items-center">
                 <Table2 className="min-w-6 min-h-6 mr-3 text-blue-600"/>
-                <h2 className="text-2xl sm:text-xl font-semibold text-gray-800">Агрегационная таблица</h2>
+                <h2 className="text-2xl sm:text-xl font-semibold text-gray-800 dark:text-white/90">Агрегационная таблица</h2>
               </div>
               <div>
                 <Select
@@ -42,7 +42,7 @@ export const AggregationTable: FC<Props> = ({data, options, currentOption, onCha
             </div>
             <div className="max-h-110 overflow-y-scroll">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-gray-50 dark:bg-gray-500/20">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Группа
@@ -58,12 +58,12 @@ export const AggregationTable: FC<Props> = ({data, options, currentOption, onCha
                   </th>
                 </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800/50">
                 {data.map((row, idx) => {
                   return (
                     <tr key={idx}>
-                      <td className="px-6 py-4 text-sm font-medium text-gray-900">{row.mm_dma ? 'mm_dma' : 'site_id'}</td>
-                      <td className="px-6 py-4 text-sm text-right text-gray-700">{row.impressions}</td>
+                      <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white/90">{row.mm_dma ? 'mm_dma' : 'site_id'}</td>
+                      <td className="px-6 py-4 text-sm text-right text-gray-700 dark:text-white">{row.impressions}</td>
                       <td className="px-6 py-4 text-sm text-right text-green-600 font-semibold">{formatValue(row.CTR)}</td>
                       <td className="px-6 py-4 text-sm text-right text-blue-600 font-semibold">{formatValue(row.EvPM)}</td>
                     </tr>

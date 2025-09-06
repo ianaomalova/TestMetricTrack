@@ -33,8 +33,11 @@ const CustomTooltip = ({active, payload, label}: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     return (
       <div
-        className="bg-gray-900/90 backdrop-blur-md border border-white/20 rounded-xl p-4 shadow-2xl text-white text-sm xs:text-xs">
-        <p className="font-semibold mb-2 text-blue-200 border-b border-white/10 pb-1">
+        className="bg-gray-900/90 backdrop-blur-md border
+        border-white/20 rounded-xl p-4 shadow-2xl text-white
+        text-sm xs:text-xs dark:bg-white/90 dark:border-gray-200 dark:text-gray-900"
+      >
+        <p className="font-semibold mb-2 text-blue-200 border-b border-white/10 pb-1 dark:text-blue-600 dark:border-gray-200">
           Дата: {label}
         </p>
         {payload.map((entry: PayloadItem, index: number) => (
@@ -56,9 +59,9 @@ export const Chart: FC<Props> = ({data}) => {
         className={cardWrapper}>
         <div className="flex items-center mb-4 h-11">
           <BarChart3 className="min-w-6 min-h-6 mr-3 text-blue-600"/>
-          <h2 className="text-2xl sm:text-xl font-semibold text-gray-800">Расчет показателей CTR и EvPM по датам</h2>
+          <h2 className="text-2xl sm:text-xl font-semibold text-gray-800 dark:text-white/90">Расчет показателей CTR и EvPM по датам</h2>
         </div>
-        <div className="bg-gray-50/50 rounded-2xl p-6 border border-gray-200/50">
+        <div className="bg-gray-50/50 rounded-2xl p-6 border border-gray-200/50 dark:bg-gray-800/50 dark:border-gray-700/50">
           <div className="overflow-x-scroll">
             <div className="min-w-[600px] h-[400px]">
               <ResponsiveContainer width="100%" height="100%" className="sm:w-200">

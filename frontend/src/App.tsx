@@ -7,6 +7,7 @@ import {formatForSelect} from './utils/selector.utils.ts';
 import {groupedByValues} from './configs/groupedByOptions.config.ts';
 import {useFetchChartData} from './hooks/useFetchChartData.ts';
 import {useFetchTableData} from './hooks/useFetchTableData.ts';
+import {ThemeToggle} from './components/ui/ThemeToggle.tsx';
 
 export const App: FC = () => {
   const [selectedEventType, setSelectedEventType] = useState<OptionType | null>(null);
@@ -23,9 +24,10 @@ export const App: FC = () => {
   }
 
   return (
-    <div className='min-h-screen p-10 sm:px-2 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'>
+    <div className='min-h-screen p-10 sm:px-2 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-900 dark:to-gray-800'>
+      <ThemeToggle />
       <h1
-        className="text-4xl text-center font-bold mb-4 text-blue-600 bg-clip-text">
+        className="text-4xl text-center font-bold mb-4 text-blue-600 bg-clip-text dark:text-white">
         Dashboard
       </h1>
 
