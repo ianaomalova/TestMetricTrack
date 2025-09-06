@@ -33,24 +33,24 @@ npm run build
 
 ### Главная страница с графиком и таблицей
 
-![Главная страница с графиком и таблицей](public/screenshots/one.jpg)
+![Главная страница с графиком и таблицей](frontend/public/screenshots/one.jpg)
 
 ### Селект по типу события
 
-![Селект по типу события](public/screenshots/two.jpg)
+![Селект по типу события](frontend/public/screenshots/two.jpg)
 
 ### Селект для выбора группировки в таблице
 
-![Селект для выбора группировки в таблице](public/screenshots/three.jpg)
+![Селект для выбора группировки в таблице](frontend/public/screenshots/three.jpg)
 
 ### Тултипы на графике
 
-![Тултипы на графике](public/screenshots/four.jpg)
+![Тултипы на графике](frontend/public/screenshots/four.jpg)
 
 ### Темная тема
 
-![Темная тема](public/screenshots/five.jpg)
+![Темная тема](frontend/public/screenshots/five.jpg)
 
 ### Адаптив
 
-![Адаптив](public/screenshots/six.jpg)
+![Адаптив](frontend/public/screenshots/six.jpg)
