@@ -10,10 +10,11 @@ interface Props {
   data: ITableData[];
   isLoading: boolean;
   options: OptionType[];
+  currentOption: OptionType | null;
   onChangeGroupedBy: (option: OptionType) => void;
 }
 
-export const AggregationTable: FC<Props> = ({data, options, onChangeGroupedBy, isLoading}) => {
+export const AggregationTable: FC<Props> = ({data, options, currentOption, onChangeGroupedBy, isLoading}) => {
   return (
     <div className="p-4 mt-5">
       <div className={cardWrapper + ' h-full'}>
@@ -28,7 +29,7 @@ export const AggregationTable: FC<Props> = ({data, options, onChangeGroupedBy, i
                 <Select
                   className="custom-select custom-select--glass table-select"
                   classNamePrefix="select"
-                  defaultValue={options[0]}
+                  defaultValue={currentOption || options[0]}
                   isClearable={false}
                   isSearchable
                   name="eventTypes"

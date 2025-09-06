@@ -50,6 +50,7 @@ export const App: FC = () => {
         <AggregationTable
           data={tableData}
           options={formattedGroupedByOptions}
+          currentOption={selectedGroupedBy}
           onChangeGroupedBy={handleChangeGroupBy}
           isLoading={isTableLoading}
         />
