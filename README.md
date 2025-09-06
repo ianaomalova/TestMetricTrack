@@ -6,13 +6,18 @@ React, React Context, React Select, Recharts, CSS, Tailwind, Lucide React, Axios
 
 Клонируем репозиторий и устанавливаем зависимости:
 
+
 ```bash
-git clone https://github.com/ianaomalova/timeline.git
-cd timeline
+git clone https://github.com/ianaomalova/TestMetricTrack.git
+cd frontend
 npm install
+
+cd backend
+source venv/bin/activate
+pip install fastapi uvicorn pandas   
+
 ```
 
-Клонируем репозиторий и устанавливаем зависимости:
 ```
 Также необходимо добавить файлы interview.X.csv и interview.Y.csv в папку data в папке backend
 ```
@@ -20,13 +25,8 @@ npm install
 ## Запуск проекта для разработки
 
 ```bash
-npm run start
-```
-
-## Сборка проекта для продакшена
-
-```bash
-npm run build
+npm run start (frontend)
+uvicorn main:app --reload (backend)
 ```
 
 ## Экраны
