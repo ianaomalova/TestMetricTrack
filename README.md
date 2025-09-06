@@ -1,6 +1,8 @@
 # Metric Track - Test Project
 ## Стек:
-React, React Context, React Select, Recharts, CSS, Tailwind, Lucide React, Axios
+Frontend: React, React Context, React Select, Recharts, CSS, Tailwind, Lucide React, Axios
+
+Backend: Python, Fast API, Pandas, Unicorn
 
 ## Установка
 
