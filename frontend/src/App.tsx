@@ -23,7 +23,7 @@ export const App: FC = () => {
   }
 
   return (
-    <div className='min-h-screen p-10 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'>
+    <div className='min-h-screen p-10 sm:px-2 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50'>
       <h1
         className="text-4xl text-center font-bold mb-4 text-blue-600 bg-clip-text">
         Dashboard
@@ -45,7 +45,7 @@ export const App: FC = () => {
         />
       )}
 
-      <div className="grid grid-cols-2 items-stretch">
+      <div className="grid grid-cols-2 items-stretch lg:grid-cols-1">
         <Chart data={chartData} isLoading={isChartLoading}/>
         <AggregationTable
           data={tableData}

@@ -19,10 +19,10 @@ export const AggregationTable: FC<Props> = ({data, options, onChangeGroupedBy, i
       <div className={cardWrapper + ' h-full'}>
         {isLoading ? <span className="loader"></span> : (
           <>
-            <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center justify-between gap-3 flex-wrap mb-4">
               <div className="flex items-center">
                 <Table2 className="min-w-6 min-h-6 mr-3 text-blue-600"/>
-                <h2 className="text-2xl font-semibold text-gray-800">Агрегационая таблица</h2>
+                <h2 className="text-2xl sm:text-xl font-semibold text-gray-800">Агрегационная таблица</h2>
               </div>
               <div>
                 <Select
