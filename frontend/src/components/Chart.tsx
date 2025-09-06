@@ -13,6 +13,7 @@ import {cardWrapper} from '../styles/common.ts';
 
 interface Props {
   data: IChart[];
+  isLoading: boolean;
 }
 
 interface PayloadItem {
@@ -52,7 +53,7 @@ export const Chart: FC<Props> = ({data}) => {
     <div className="p-4 mt-5">
       <div
         className={cardWrapper}>
-        <div className="flex items-center mb-4">
+        <div className="flex items-center mb-4 h-11">
           <BarChart3 className="min-w-6 min-h-6 mr-3 text-blue-600"/>
           <h2 className="text-2xl font-semibold text-gray-800">Расчет показателей CTR и EvPM по датам</h2>
         </div>

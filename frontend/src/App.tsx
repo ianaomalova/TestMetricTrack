@@ -1,40 +1,22 @@
-import {type FC, useEffect, useState} from 'react';
-import {fetchChartData, fetchTableData} from './api/api.ts';
-import type {IChart} from './types/chartData.interface.ts';
+import {type FC, useState} from 'react';
 import {Chart} from './components/Chart.tsx';
 import type {OptionType} from './types/selectType.interface.ts';
 import {AggregationTable} from './components/AggregationTable.tsx';
 import Select, {type SingleValue} from 'react-select';
 import {formatForSelect} from './utils/selector.utils.ts';
-import type {ITableData} from './types/tableData.interface.ts';
 import {groupedByValues} from './configs/groupedByOptions.config.ts';
+import {useFetchChartData} from './hooks/useFetchChartData.ts';
+import {useFetchTableData} from './hooks/useFetchTableData.ts';
 
 export const App: FC = () => {
-  const [chartData, setChartData] = useState<IChart[]>([]);
-  const [tableData, setTableData] = useState<ITableData[]>([]);
-
-  const [eventTypes, setEventTypes] = useState<string[]>([]);
-  const [groupedByOptions] = useState<string[]>(groupedByValues);
-
-  const [selectedEventTypes, setSelectedEventTypes] = useState<OptionType | null>(null);
+  const [selectedEventType, setSelectedEventType] = useState<OptionType | null>(null);
   const [selectedGroupedBy, setSelectedGroupedBy] = useState<OptionType | null>(null);
 
+  const {chartData, eventTypes, isChartLoading} = useFetchChartData(selectedEventType?.value);
+  const {tableData, isTableLoading} = useFetchTableData(selectedEventType?.value, selectedGroupedBy?.value);
+
   const formattedEventTypes = formatForSelect(eventTypes);
-  const formattedFroupedByOptions = formatForSelect(groupedByOptions)
-
-  useEffect(() => {
-    fetchChartData(selectedEventTypes?.value).then(res => {
-      setChartData(res.chart_data);
-      setEventTypes(res.event_types);
-    });
-  }, [selectedEventTypes]);
-
-  useEffect(() => {
-    fetchTableData(selectedEventTypes?.value, selectedGroupedBy?.value).then(res => {
-      setTableData(res);
-      console.log(res)
-    });
-  }, [selectedEventTypes, selectedGroupedBy]);
+  const formattedGroupedByOptions = formatForSelect(groupedByValues);
 
   const handleChangeGroupBy = (option: OptionType) => {
     setSelectedGroupedBy(option);
@@ -46,26 +28,30 @@ export const App: FC = () => {
         className="text-4xl text-center font-bold mb-4 text-blue-600 bg-clip-text">
         Dashboard
       </h1>
+
       {formattedEventTypes.length > 0 && (
         <Select
           className="custom-select custom-select--glass"
           classNamePrefix="select"
           defaultValue={formattedEventTypes[0]}
           isClearable={false}
+          isLoading={isChartLoading}
           isSearchable
           name="eventTypes"
           options={formattedEventTypes}
           onChange={(option: SingleValue<OptionType>) => {
-            if (option) setSelectedEventTypes(option);
+            if (option) setSelectedEventType(option);
           }}
         />
       )}
+
       <div className="grid grid-cols-2 items-stretch">
-        <Chart data={chartData} />
+        <Chart data={chartData} isLoading={isChartLoading}/>
         <AggregationTable
           data={tableData}
-          options={formattedFroupedByOptions}
+          options={formattedGroupedByOptions}
           onChangeGroupedBy={handleChangeGroupBy}
+          isLoading={isTableLoading}
         />
       </div>
     </div>
