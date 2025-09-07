@@ -13,7 +13,7 @@ app.add_middleware(
 
 X = pd.read_csv("data/interview.X.csv")
 Y = pd.read_csv("data/interview.y.csv")
-merged = X.merge(Y, on="uid", how="left")
+merged = X.merge(Y, on="uid")
 merged["tag"] = merged["tag"].astype(str).str.strip().str.replace(r"^[fv]", "", regex=True)
 merged["date"] = pd.to_datetime(merged["reg_time"]).dt.date
 uniq_tags = sorted(merged["tag"].unique())
@@ -52,4 +52,8 @@ def get_table(group_by: str = "mm_dma", event_type: str = "click"):
         lambda g: calculate_metrics(g, event_type)
     ).reset_index()
 
-    return table_df.to_dict(orient="records")
+    records = table_df.to_dict(orient="records")
+    for rec in records:
+        rec["type"] = group_by
+
+    return records
