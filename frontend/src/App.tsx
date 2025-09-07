@@ -13,6 +13,7 @@ export const App: FC = () => {
 	const [selectedEventType, setSelectedEventType] = useState<OptionType | null>(
 		null
 	)
+
 	const [selectedGroupedBy, setSelectedGroupedBy] = useState<OptionType | null>(
 		null
 	)
@@ -20,6 +21,7 @@ export const App: FC = () => {
 	const { chartData, eventTypes, isChartLoading } = useFetchChartData(
 		selectedEventType?.value
 	)
+
 	const { tableData, isTableLoading } = useFetchTableData(
 		selectedEventType?.value,
 		selectedGroupedBy?.value
@@ -56,7 +58,7 @@ export const App: FC = () => {
 			)}
 
 			<div className='grid grid-cols-2 items-stretch lg:grid-cols-1'>
-				<Chart data={chartData} isLoading={isChartLoading} />
+				<Chart data={chartData} />
 				<AggregationTable
 					data={tableData}
 					options={formattedGroupedByOptions}
