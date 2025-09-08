@@ -16,7 +16,9 @@ cd frontend
 npm install
 
 cd backend
-source venv/bin/activate
+python3 -m venv venv
+source venv/bin/activate (для MacOS/ Linix)
+venv\Scripts\activate (для Windows)
 pip install fastapi uvicorn pandas
 
 ```
