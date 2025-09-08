@@ -1,5 +1,7 @@
 # Metric Track - Test Project
+
 ## Стек:
+
 Frontend: React, React Context, React Select, Recharts, CSS, Tailwind, Lucide React, Axios
 
 Backend: Python, Fast API, Pandas, Unicorn
@@ -8,7 +10,6 @@ Backend: Python, Fast API, Pandas, Unicorn
 
 Клонируем репозиторий и устанавливаем зависимости:
 
-
 ```bash
 git clone https://github.com/ianaomalova/TestMetricTrack.git
 cd frontend
@@ -16,7 +17,7 @@ npm install
 
 cd backend
 source venv/bin/activate
-pip install fastapi uvicorn pandas   
+pip install fastapi uvicorn pandas
 
 ```
 
@@ -27,7 +28,7 @@ pip install fastapi uvicorn pandas
 ## Запуск проекта для разработки
 
 ```bash
-npm run start (frontend)
+npm run dev (frontend)
 uvicorn main:app --reload (backend)
 ```
 
